@@ -1,0 +1,295 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#ifndef APSTUDIO_INVOKED
+#include "targetver.h"
+#endif
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 中文(中华人民共和国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#ifndef APSTUDIO_INVOKED\r\n"
+    "#include ""targetver.h""\r\n"
+    "#endif\r\n"
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#include ""res\\Tools.rc2""  // 非 Microsoft Visual C++ 编辑的资源\r\n"
+    "#include ""l.CHS\\afxres.rc""      // 标准组件\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080403a8"
+        BEGIN
+            VALUE "CompanyName", "TODO: <公司名>"
+            VALUE "FileDescription", "TODO: <文件说明>"
+            VALUE "FileVersion", "1.0.0.1"
+            VALUE "InternalName", "Tools.dll"
+            VALUE "LegalCopyright", "TODO: (C) <公司名>。保留所有权利。"
+            VALUE "OriginalFilename", "Tools.dll"
+            VALUE "ProductName", "TODO: <产品名>"
+            VALUE "ProductVersion", "1.0.0.1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 936
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX 0, 0, 331, 159
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "FutureAndPresent"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "计算",IDC_BUTTON1,130,127,50,14
+    CTEXT           "请填充以下数字，非填充项则是求取项",IDC_STATIC,84,26,138,12
+    EDITTEXT        IDC_EDIT1,38,70,33,19,ES_CENTER | ES_AUTOHSCROLL,WS_EX_RIGHT
+    LTEXT           "=",IDC_STATIC,75,75,8,8
+    CTEXT           "*",IDC_STATIC,127,75,8,8,SS_CENTERIMAGE
+    CTEXT           "(",IDC_STATIC_CG1,133,72,10,10,SS_CENTERIMAGE
+    CTEXT           "1",IDC_STATIC_CG2,142,72,8,8,SS_CENTERIMAGE
+    CTEXT           "+",IDC_STATIC_CG3,152,72,8,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,93,69,30,20,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,175,66,26,20,ES_CENTER | ES_AUTOHSCROLL
+    CTEXT           ")",IDC_STATIC_CG4,205,72,8,8,SS_NOTIFY | SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT4,232,63,25,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "FV",IDC_STATIC_FV,21,76,11,8,SS_NOTIFY
+    LTEXT           "PV",IDC_STATIC_PV,82,76,11,10,SS_NOTIFY
+    CTEXT           "r",IDC_STATIC_r,163,72,8,8,SS_NOTIFY
+    CTEXT           "N",IDC_STATIC_N,221,65,8,8
+    PUSHBUTTON      "切换到Continuous模式M->无穷",IDC_BUTTON2,228,15,58,37,BS_MULTILINE
+    PUSHBUTTON      "数据清零重新计算",IDC_BUTTON3,221,117,43,24,BS_MULTILINE
+    PUSHBUTTON      "切换到非整年度模式",IDC_BUTTON4,24,15,58,37,BS_MULTILINE
+    EDITTEXT        IDC_EDIT5,175,95,26,20,ES_CENTER | ES_AUTOHSCROLL | NOT WS_VISIBLE
+    CTEXT           "m",IDC_STATIC_m,163,101,8,8,SS_NOTIFY | NOT WS_VISIBLE
+    CTEXT           "————————",IDC_STATIC_HELL,163,86,43,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT6,278,63,25,14,ES_CENTER | ES_AUTOHSCROLL | NOT WS_VISIBLE
+    CTEXT           "*",IDC_STATIC_N2,260,66,8,8,NOT WS_VISIBLE
+    CTEXT           "m",IDC_STATIC_m2,269,64,8,8,NOT WS_VISIBLE
+    LTEXT           "-",IDC_STATIC_MINUS,214,66,8,8,NOT WS_VISIBLE
+END
+
+IDD_DIALOG_EFFECTIVE_R DIALOGEX 0, 0, 295, 143
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Effect Rate of Return"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "计算",IDC_BUTTON1,115,106,50,14
+    CTEXT           "请填充以下数字，非填充项则是求取项",IDC_STATIC,33,31,197,12
+    EDITTEXT        IDC_EDIT1,38,70,33,19,ES_CENTER | ES_AUTOHSCROLL,WS_EX_RIGHT
+    LTEXT           "=",IDC_STATIC,75,75,8,8
+    CTEXT           "(",IDC_STATIC,80,71,13,17,SS_CENTERIMAGE
+    CTEXT           "1",IDC_STATIC,88,69,17,20,SS_CENTERIMAGE
+    CTEXT           "+",IDC_STATIC,101,72,13,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT3,167,69,26,20,ES_CENTER | ES_AUTOHSCROLL
+    CTEXT           ")",IDC_STATIC,194,70,13,17,SS_NOTIFY | SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT4,220,66,25,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "EAR",IDC_STATIC_EAR,17,77,15,8,SS_NOTIFY
+    CTEXT           "PeriodicRate",IDC_STATIC_PERIOD_RETURN,113,75,52,11,SS_NOTIFY
+    CTEXT           "m",IDC_STATIC_N,204,68,15,8
+    PUSHBUTTON      "数据清零重新计算",IDC_BUTTON3,215,96,43,24,BS_MULTILINE
+    CTEXT           "-",IDC_STATIC,249,72,13,14,SS_CENTERIMAGE
+    CTEXT           "1",IDC_STATIC,265,73,13,14,SS_CENTERIMAGE
+END
+
+IDD_DIALOG_FPA DIALOGEX 0, 0, 319, 199
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "FutureAndPresent_ForOrdiaryAnnuity"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "计算",IDC_BUTTON1,129,156,50,14
+    CTEXT           "请填充以下数字，非填充项则是求取项",-1,84,26,138,12
+    EDITTEXT        IDC_EDIT1,38,90,33,19,ES_CENTER | ES_AUTOHSCROLL,WS_EX_RIGHT
+    LTEXT           "=",-1,75,95,8,8
+    CTEXT           "*",IDC_STATIC_MUTIPLY,127,95,8,8,SS_CENTERIMAGE
+    CTEXT           "(",IDC_STATIC_CG1,147,79,10,10,SS_CENTERIMAGE
+    CTEXT           "1",IDC_STATIC_CG2,156,79,8,8,SS_CENTERIMAGE
+    CTEXT           "+",IDC_STATIC_CG3,166,79,8,8,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,93,89,30,20,ES_CENTER | ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,189,73,26,18,ES_CENTER | ES_AUTOHSCROLL
+    CTEXT           ")",IDC_STATIC_CG4,219,79,8,8,SS_NOTIFY | SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT4,244,68,21,14,ES_CENTER | ES_AUTOHSCROLL
+    LTEXT           "FV",IDC_STATIC_FV,21,96,11,8,SS_NOTIFY
+    LTEXT           "A",IDC_STATIC_A,82,96,11,10,SS_NOTIFY
+    CTEXT           "r",IDC_STATIC_r,177,79,8,8,SS_NOTIFY
+    CTEXT           "N",IDC_STATIC_N,233,70,8,8
+    PUSHBUTTON      "切换到Continuous模式N->无穷",IDC_BUTTON2,238,18,58,37,BS_MULTILINE
+    PUSHBUTTON      "数据清零重新计算",IDC_BUTTON3,233,147,43,24,BS_MULTILINE
+    CTEXT           "——————————————————————————————",IDC_STATIC_HELL,139,94,144,8
+    LTEXT           "——",IDC_STATIC_MINUS2,272,76,8,8
+    LTEXT           "1",IDC_STATIC_MINUSONE,287,78,10,10
+    CTEXT           "r",IDC_STATIC_r2,208,102,17,11
+    LTEXT           "—",IDC_STATIC_MINUS,224,70,8,8,NOT WS_VISIBLE
+    PUSHBUTTON      "切换到求PV模式",IDC_BUTTON4,18,18,58,37,BS_MULTILINE
+    LTEXT           "——",IDC_STATIC_MINUS3,141,79,8,8,NOT WS_VISIBLE
+END
+
+IDD_DIALOG_DiscountedCashFlow DIALOGEX 0, 0, 501, 254
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "折现流计算"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST_CTRL,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,487,216
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 324
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 152
+    END
+
+    IDD_DIALOG_EFFECTIVE_R, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 288
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_DIALOG_FPA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 312
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 192
+    END
+
+    IDD_DIALOG_DiscountedCashFlow, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 494
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_PV           "PV:投资的原始值，时间节点在初始值"
+    IDS_STRING_FV           "FV:投资的现值，时间节点在最后"
+    IDS_STRING_N            "N:时间长短（以年为单位）"
+    IDS_STRING_R            "r:投资利率"
+    IDS_STRING_M            "M:按非年度单位计算时的分母（例如按月记取利率时M=12）"
+    IDS_STRING_EAR          "EAR:有效利率是指按年度计算利率."
+    IDS_STRING_PERIOD_RETURN "Period_Return:按非年度计算的利率"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STRING_A            "A:等额年金"
+END
+
+#endif    // 中文(中华人民共和国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE 4, 2
+#pragma code_page(936)
+#include "res\Tools.rc2"  // 非 Microsoft Visual C++ 编辑的资源
+#include "l.CHS\afxres.rc"      // 标准组件
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
