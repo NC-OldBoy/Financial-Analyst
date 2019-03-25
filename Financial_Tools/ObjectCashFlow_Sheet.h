@@ -7,6 +7,7 @@ public:
 	ObjectCashFlow_Sheet(void);
 	virtual ~ObjectCashFlow_Sheet(void);
 	ObjectCashFlow_Sheet& operator=(ObjectCashFlow_Sheet& rhs);
+	BOOL isempty();
 public:
 	map<CString,ObjectCashFlow> Project_Sheet;//构建一个项目表
 	int Project_Num;

@@ -4,7 +4,9 @@
 #include "stdafx.h"
 #include "Tools.h"
 #include "DiscountCashFlow.h"
-#import "C:\Users\tgw\Desktop\DCF_COM.dll" no_namespace 
+#include "../DCF_COM/DCF_COM_i.h"
+#include "../DCF_COM/DCF_COM_i.c"
+//#import "C:\Users\tgw\Documents\Visual Studio 2008\Projects\Financial-Analyst-master\DCF_COM\Debug\DCF_COM.dll" no_namespace 
 // DiscountCashFlow 对话框
 
 IMPLEMENT_DYNAMIC(DiscountCashFlow, CDialog)
@@ -107,15 +109,20 @@ void DiscountCashFlow::SetInitialItem(void)
 void DiscountCashFlow::OnBnClickedButtonCalcu()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	CoInitialize(NULL); 
+	
 	int index=0;//指示是第几行
 	map<CString,ObjectCashFlow>::iterator iter=Project_Sheet_receive.Project_Sheet.begin();
+	IDCF_Tools *tools;
+	if(CoInitialize(NULL)!=S_OK)
+	{
+		MessageBox(_T("初始化组件失败"));
+	}
+	HRESULT hResult=CoCreateInstance(CLSID_DCF_Tools,NULL,CLSCTX_INPROC_SERVER,IID_IDCF_Tools,(void**)&tools);
 	for (;iter!=Project_Sheet_receive.Project_Sheet.end();++iter)
 	{
 		SAFEARRAY *psa;
 		SAFEARRAYBOUND arrbound[1];//设置安全数组的维度
 		VARIANT vsaValue;//设置variant数组
-		IDCF_Tools *tools;
 		int arrsize=Project_Sheet_receive.Years;
 		arrbound[0].lLbound=0;
 		arrbound[1].cElements=(long)arrsize;
@@ -124,7 +131,7 @@ void DiscountCashFlow::OnBnClickedButtonCalcu()
 		vsaValue.vt= VT_ARRAY|VT_VARIANT;
 		V_ARRAY(&vsaValue) = psa;//封装safearray;
 		double *NPV=0;
-		*NPV=tools->NPV(m_edit_r1,vsaValue,Project_Sheet_receive.Years);
+		*NPV=tools->NPV(m_edit_r1,vsaValue,Project_Sheet_receive.Years,NPV);
 		CListCtrl* ptrlistctrl=(CListCtrl*)this->GetDlgItem(IDC_LIST_CTRL);
 		CString str;
 		str.Format(_T("%.2f"),NPV);
@@ -149,7 +156,7 @@ BOOL DiscountCashFlow::Get_Project_Sheet_receive(CString project_name,SAFEARRAY 
 		return FALSE;
 	}
 	map<CString,long double>::iterator iter2=iter->second.Project.begin();
-	for(long i=0;iter2!=iter->second.Project.end();++iter,++i)
+	for(long i=0;iter2!=iter->second.Project.end();++iter2,++i)
 	{
 		SafeArrayPutElement(ptr,&i,&(iter2->second));
 	}

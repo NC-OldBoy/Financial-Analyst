@@ -266,7 +266,7 @@ void Create_DiscountedCashFlow()
 void Refresh_DiscountedCashFlow(ObjectCashFlow_Sheet Data)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
-	if(DCF_Dialog.Project_Sheet_receive!=NULL)
+	if(!DCF_Dialog.Project_Sheet_receive.isempty())
 	{
 		CListCtrl *ptr=(CListCtrl*)DCF_Dialog.GetDlgItem(IDC_LIST_CTRL);
 		int count=ptr->GetHeaderCtrl()->GetItemCount();

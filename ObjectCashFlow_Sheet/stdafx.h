@@ -6,12 +6,20 @@
 #pragma once
 
 #include "targetver.h"
-#include <algorithm>
+
+#define WIN32_LEAN_AND_MEAN             // 从 Windows 头中排除极少使用的资料
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS      // 某些 CString 构造函数将是显式的
+
+#ifndef VC_EXTRALEAN
+#define VC_EXTRALEAN            // 从 Windows 头中排除极少使用的资料
+#endif
+
+#include <afx.h>
+#include <afxwin.h>         // MFC 核心组件和标准组件
 #include <map>
-#include <iostream>
+#include <algorithm>
 #include <vector>
 #include <ctime>
-#define WIN32_LEAN_AND_MEAN             // 从 Windows 头中排除极少使用的资料
 
 
 

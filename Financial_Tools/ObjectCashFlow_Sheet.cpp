@@ -26,3 +26,11 @@ ObjectCashFlow_Sheet& ObjectCashFlow_Sheet::operator=(ObjectCashFlow_Sheet& rhs)
 	Years=rhs.Years;
 	return *this;
 }
+
+BOOL ObjectCashFlow_Sheet::isempty()
+{
+	if(Project_Sheet.empty())
+		return TRUE;
+	else
+		return FALSE;
+}

@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="ObjectCashFlow_Sheet"
-	ProjectGUID="{2E1CB8F8-1BC4-4315-AE0D-BA1EFFF5C767}"
+	ProjectGUID="{2FC14F0D-9745-4057-AE80-A2BEF215829C}"
 	RootNamespace="ObjectCashFlow_Sheet"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
@@ -83,6 +83,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
+			UseOfMFC="2"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -150,11 +151,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\Financial_Tools\ObjectCashFlow.cpp"
+				RelativePath=".\ObjectCashFlow.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\Financial_Tools\ObjectCashFlow_Sheet.cpp"
+				RelativePath=".\ObjectCashFlow_Sheet.cpp"
 				>
 			</File>
 			<File
@@ -184,11 +185,11 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath="..\Financial_Tools\ObjectCashFlow.h"
+				RelativePath=".\ObjectCashFlow.h"
 				>
 			</File>
 			<File
-				RelativePath="..\Financial_Tools\ObjectCashFlow_Sheet.h"
+				RelativePath=".\ObjectCashFlow_Sheet.h"
 				>
 			</File>
 			<File

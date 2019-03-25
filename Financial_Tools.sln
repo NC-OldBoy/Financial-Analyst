@@ -5,14 +5,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Financial_Tools", "Financia
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tools", "Tools\Tools.vcproj", "{ED3C636D-2BEE-4E3D-A2C6-474811C4C050}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectCashFlow_Sheet", "ObjectCashFlow_Sheet\ObjectCashFlow_Sheet.vcproj", "{2E1CB8F8-1BC4-4315-AE0D-BA1EFFF5C767}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCF_COM", "DCF_COM\DCF_COM.vcproj", "{A94C4DF0-9D34-4673-8213-46C0E35B211D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCF_COMPS", "DCF_COM\DCF_COMPS.vcproj", "{9EC59416-E999-42C5-9253-7DA3E45A8716}"
 	ProjectSection(ProjectDependencies) = postProject
 		{A94C4DF0-9D34-4673-8213-46C0E35B211D} = {A94C4DF0-9D34-4673-8213-46C0E35B211D}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ObjectCashFlow_Sheet", "ObjectCashFlow_Sheet\ObjectCashFlow_Sheet.vcproj", "{2FC14F0D-9745-4057-AE80-A2BEF215829C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,16 +28,16 @@ Global
 		{ED3C636D-2BEE-4E3D-A2C6-474811C4C050}.Debug|Win32.Build.0 = Debug|Win32
 		{ED3C636D-2BEE-4E3D-A2C6-474811C4C050}.Release|Win32.ActiveCfg = Release|Win32
 		{ED3C636D-2BEE-4E3D-A2C6-474811C4C050}.Release|Win32.Build.0 = Release|Win32
-		{2E1CB8F8-1BC4-4315-AE0D-BA1EFFF5C767}.Debug|Win32.ActiveCfg = Debug|Win32
-		{2E1CB8F8-1BC4-4315-AE0D-BA1EFFF5C767}.Debug|Win32.Build.0 = Debug|Win32
-		{2E1CB8F8-1BC4-4315-AE0D-BA1EFFF5C767}.Release|Win32.ActiveCfg = Release|Win32
-		{2E1CB8F8-1BC4-4315-AE0D-BA1EFFF5C767}.Release|Win32.Build.0 = Release|Win32
 		{A94C4DF0-9D34-4673-8213-46C0E35B211D}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A94C4DF0-9D34-4673-8213-46C0E35B211D}.Debug|Win32.Build.0 = Debug|Win32
 		{A94C4DF0-9D34-4673-8213-46C0E35B211D}.Release|Win32.ActiveCfg = Release|Win32
 		{A94C4DF0-9D34-4673-8213-46C0E35B211D}.Release|Win32.Build.0 = Release|Win32
 		{9EC59416-E999-42C5-9253-7DA3E45A8716}.Debug|Win32.ActiveCfg = Debug|Win32
 		{9EC59416-E999-42C5-9253-7DA3E45A8716}.Release|Win32.ActiveCfg = Release|Win32
+		{2FC14F0D-9745-4057-AE80-A2BEF215829C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2FC14F0D-9745-4057-AE80-A2BEF215829C}.Debug|Win32.Build.0 = Debug|Win32
+		{2FC14F0D-9745-4057-AE80-A2BEF215829C}.Release|Win32.ActiveCfg = Release|Win32
+		{2FC14F0D-9745-4057-AE80-A2BEF215829C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
