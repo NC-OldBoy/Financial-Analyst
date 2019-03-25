@@ -22,7 +22,10 @@ protected:
 	DECLARE_MESSAGE_MAP()
 	virtual void PostNcDestroy();
 public:
-	ObjectCashFlow_Sheet *Project_Sheet_receive;
+	ObjectCashFlow_Sheet Project_Sheet_receive;
 	virtual BOOL OnInitDialog();
 	void SetInitialItem(void);
+	afx_msg void OnBnClickedButtonCalcu();
+	BOOL Get_Project_Sheet_receive(CString project_name,SAFEARRAY *ptr);
+	double m_edit_r1;
 };

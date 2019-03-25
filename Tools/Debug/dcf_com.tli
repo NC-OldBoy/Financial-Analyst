@@ -1,0 +1,19 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.21022.08 (e72b569c).
+//
+// c:\users\tgw\documents\visual studio 2008\projects\financial-analyst-master\tools\debug\dcf_com.tli
+//
+// Wrapper implementations for Win32 type library C:\Users\tgw\Desktop\DCF_COM.dll
+// compiler-generated file created 03/25/19 at 23:14:51 - DO NOT EDIT!
+
+#pragma once
+
+//
+// interface IDCF_Tools wrapper method implementations
+//
+
+inline double IDCF_Tools::NPV ( double r, const _variant_t & CashFlow, short Years ) {
+    double _result = 0;
+    HRESULT _hr = raw_NPV(r, CashFlow, Years, &_result);
+    if (FAILED(_hr)) _com_issue_errorex(_hr, this, __uuidof(this));
+    return _result;
+}

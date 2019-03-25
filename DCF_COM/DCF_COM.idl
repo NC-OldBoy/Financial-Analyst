@@ -1,0 +1,37 @@
+// DCF_COM.idl : DCF_COM 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(DCF_COM.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(B040A339-BBEC-491F-B151-2228DD10D3CC),
+	dual,
+	nonextensible,
+	helpstring("IDCF_Tools 接口"),
+	pointer_default(unique)
+]
+interface IDCF_Tools : IDispatch{
+	[id(1), helpstring("方法NPV")] HRESULT NPV([in] DOUBLE r, [in] VARIANT CashFlow, [in] SHORT Years, [out,retval] DOUBLE* NPV_Result);
+};
+[
+	uuid(764EBA81-F7DF-43FB-AE21-5E05F22BCEB5),
+	version(1.0),
+	helpstring("DCF_COM 1.0 类型库")
+]
+library DCF_COMLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(03770159-705D-4EFB-B817-05FFA45F7F5A),
+		helpstring("DCF_Tools Class")
+	]
+	coclass DCF_Tools
+	{
+		[default] interface IDCF_Tools;
+	};
+};

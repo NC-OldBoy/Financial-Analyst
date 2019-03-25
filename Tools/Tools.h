@@ -12,7 +12,7 @@
 #include <cmath>
 #include "../ObjectCashFlow_Sheet/ObjectCashFlow_Sheet.h"
 #include "discountcashflow.h"
-
+#include <OAIdl.h>
 //判别想求什么
 #define WANT_GET 0
 #define WANT_GET_FV 1

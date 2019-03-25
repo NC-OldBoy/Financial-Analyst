@@ -1,0 +1,26 @@
+HKCR
+{
+	DCF_COM.DCF_Tools.1 = s 'DCF_Tools Class'
+	{
+		CLSID = s '{03770159-705D-4EFB-B817-05FFA45F7F5A}'
+	}
+	DCF_COM.DCF_Tools = s 'DCF_Tools Class'
+	{
+		CLSID = s '{03770159-705D-4EFB-B817-05FFA45F7F5A}'
+		CurVer = s 'DCF_COM.DCF_Tools.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {03770159-705D-4EFB-B817-05FFA45F7F5A} = s 'DCF_Tools Class'
+		{
+			ProgID = s 'DCF_COM.DCF_Tools.1'
+			VersionIndependentProgID = s 'DCF_COM.DCF_Tools'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{764EBA81-F7DF-43FB-AE21-5E05F22BCEB5}'
+		}
+	}
+}
