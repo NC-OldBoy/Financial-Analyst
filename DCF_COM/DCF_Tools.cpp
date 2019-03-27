@@ -39,14 +39,12 @@ STDMETHODIMP CDCF_Tools::IRR( VARIANT Cashflow, SHORT Years, DOUBLE* IRR_Return)
 	}
 	double r=0;
 	double NPV_TMP=0;
-	for(r=0;NPV_TMP>=0;r=r+0.0001)
+	for(r=0;NPV_TMP>=0&&r<1;r=r+0.0001)
 	{
 		for(int i=0;i<Years;++i)
 		{
 			NPV_TMP+=buf[i]/pow(1+r,i);
 		}
-		if(r==0&&NPV_TMP>=0)
-			break;
 	}
 	*IRR_Return=r;
 	return S_OK;

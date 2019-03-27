@@ -143,6 +143,7 @@ void DiscountCashFlow::OnBnClickedButtonCalcu()
 		++index;
 	}
 	iter=Project_Sheet_receive.Project_Sheet.begin();
+	index=0;
 	for (;iter!=Project_Sheet_receive.Project_Sheet.end();++iter)
 	{
 		SAFEARRAYBOUND arrbound[1];//设置安全数组的维度
@@ -162,7 +163,12 @@ void DiscountCashFlow::OnBnClickedButtonCalcu()
 		tools->IRR(vsaValue,Project_Sheet_receive.Years,&IRR);
 		CListCtrl* ptrlistctrl=(CListCtrl*)this->GetDlgItem(IDC_LIST_CTRL);
 		CString str;
-		str.Format(_T("%.2f"),IRR);
+		if(IRR==0)
+			str=L"亏本项目";
+		else if(IRR==1)
+			str=L"盈利超100%";
+		else
+			str.Format(_T("%.2f"),IRR);
 		ptrlistctrl->SetItemText(index,Project_Sheet_receive.Years+2,str);
 		SafeArrayDestroy(psa);
 		++index;
