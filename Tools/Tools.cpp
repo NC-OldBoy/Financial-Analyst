@@ -259,6 +259,8 @@ void ShowDlg_DiscountedCashFlow(ObjectCashFlow_Sheet Data)
 void Create_DiscountedCashFlow()
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+	if(&DCF_Dialog.m_hWnd!=NULL)
+		DCF_Dialog.DestroyWindow();
 	DCF_Dialog.Create(IDD_DIALOG_DiscountedCashFlow,0);
 	DCF_Dialog.ShowWindow(SW_SHOW);
 }

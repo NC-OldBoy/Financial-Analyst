@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Tue Mar 26 00:42:58 2019
+/* at Wed Mar 27 23:28:48 2019
  */
 /* Compiler settings for .\DCF_COM.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
@@ -93,6 +93,11 @@ EXTERN_C const IID IID_IDCF_Tools;
             /* [in] */ SHORT Years,
             /* [retval][out] */ DOUBLE *NPV_Result) = 0;
         
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE IRR( 
+            /* [in] */ VARIANT Cashflow,
+            SHORT Years,
+            /* [retval][out] */ DOUBLE *IRR_Return) = 0;
+        
     };
     
 #else 	/* C style interface */
@@ -149,6 +154,12 @@ EXTERN_C const IID IID_IDCF_Tools;
             /* [in] */ SHORT Years,
             /* [retval][out] */ DOUBLE *NPV_Result);
         
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *IRR )( 
+            IDCF_Tools * This,
+            /* [in] */ VARIANT Cashflow,
+            SHORT Years,
+            /* [retval][out] */ DOUBLE *IRR_Return);
+        
         END_INTERFACE
     } IDCF_ToolsVtbl;
 
@@ -187,6 +198,9 @@ EXTERN_C const IID IID_IDCF_Tools;
 
 #define IDCF_Tools_NPV(This,r,CashFlow,Years,NPV_Result)	\
     ( (This)->lpVtbl -> NPV(This,r,CashFlow,Years,NPV_Result) ) 
+
+#define IDCF_Tools_IRR(This,Cashflow,Years,IRR_Return)	\
+    ( (This)->lpVtbl -> IRR(This,Cashflow,Years,IRR_Return) ) 
 
 #endif /* COBJMACROS */
 

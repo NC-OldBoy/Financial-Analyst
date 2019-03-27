@@ -17,6 +17,7 @@ import "ocidl.idl";
 ]
 interface IDCF_Tools : IDispatch{
 	[id(1), helpstring("方法NPV")] HRESULT NPV([in] DOUBLE r, [in] VARIANT CashFlow, [in] SHORT Years, [out,retval] DOUBLE* NPV_Result);
+	[id(2), helpstring("方法IRR")] HRESULT IRR([in] VARIANT Cashflow, SHORT Years, [out,retval] DOUBLE* IRR_Return);
 };
 [
 	uuid(764EBA81-F7DF-43FB-AE21-5E05F22BCEB5),

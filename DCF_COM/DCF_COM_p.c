@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Tue Mar 26 00:42:58 2019
+/* at Wed Mar 27 23:28:48 2019
  */
 /* Compiler settings for .\DCF_COM.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
@@ -50,7 +50,7 @@
 #include "DCF_COM_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   1039                              
-#define PROC_FORMAT_STRING_SIZE   55                                
+#define PROC_FORMAT_STRING_SIZE   103                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   1            
@@ -158,6 +158,50 @@ static const DCF_COM_MIDL_PROC_FORMAT_STRING DCF_COM__MIDL_ProcFormatString =
 /* 48 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
 /* 50 */	NdrFcShort( 0x24 ),	/* x86 Stack size/offset = 36 */
 /* 52 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure IRR */
+
+/* 54 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 56 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 60 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 62 */	NdrFcShort( 0x20 ),	/* x86 Stack size/offset = 32 */
+/* 64 */	NdrFcShort( 0x6 ),	/* 6 */
+/* 66 */	NdrFcShort( 0x2c ),	/* 44 */
+/* 68 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+			0x4,		/* 4 */
+/* 70 */	0x8,		/* 8 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 72 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 74 */	NdrFcShort( 0x167 ),	/* 359 */
+/* 76 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter Cashflow */
+
+/* 78 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
+/* 80 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 82 */	NdrFcShort( 0x400 ),	/* Type Offset=1024 */
+
+	/* Parameter Years */
+
+/* 84 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 86 */	NdrFcShort( 0x14 ),	/* x86 Stack size/offset = 20 */
+/* 88 */	0x6,		/* FC_SHORT */
+			0x0,		/* 0 */
+
+	/* Parameter IRR_Return */
+
+/* 90 */	NdrFcShort( 0x2150 ),	/* Flags:  out, base type, simple ref, srv alloc size=8 */
+/* 92 */	NdrFcShort( 0x18 ),	/* x86 Stack size/offset = 24 */
+/* 94 */	0xc,		/* FC_DOUBLE */
+			0x0,		/* 0 */
+
+	/* Return value */
+
+/* 96 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 98 */	NdrFcShort( 0x1c ),	/* x86 Stack size/offset = 28 */
+/* 100 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -906,7 +950,8 @@ static const unsigned short IDCF_Tools_FormatStringOffsetTable[] =
     (unsigned short) -1,
     (unsigned short) -1,
     (unsigned short) -1,
-    0
+    0,
+    54
     };
 
 static const MIDL_STUBLESS_PROXY_INFO IDCF_Tools_ProxyInfo =
@@ -930,7 +975,7 @@ static const MIDL_SERVER_INFO IDCF_Tools_ServerInfo =
     0,
     0,
     0};
-CINTERFACE_PROXY_VTABLE(8) _IDCF_ToolsProxyVtbl = 
+CINTERFACE_PROXY_VTABLE(9) _IDCF_ToolsProxyVtbl = 
 {
     &IDCF_Tools_ProxyInfo,
     &IID_IDCF_Tools,
@@ -941,7 +986,8 @@ CINTERFACE_PROXY_VTABLE(8) _IDCF_ToolsProxyVtbl =
     0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
     0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
-    (void *) (INT_PTR) -1 /* IDCF_Tools::NPV */
+    (void *) (INT_PTR) -1 /* IDCF_Tools::NPV */ ,
+    (void *) (INT_PTR) -1 /* IDCF_Tools::IRR */
 };
 
 
@@ -951,6 +997,7 @@ static const PRPC_STUB_FUNCTION IDCF_Tools_table[] =
     STUB_FORWARDING_FUNCTION,
     STUB_FORWARDING_FUNCTION,
     STUB_FORWARDING_FUNCTION,
+    NdrStubCall2,
     NdrStubCall2
 };
 
@@ -958,7 +1005,7 @@ CInterfaceStubVtbl _IDCF_ToolsStubVtbl =
 {
     &IID_IDCF_Tools,
     &IDCF_Tools_ServerInfo,
-    8,
+    9,
     &IDCF_Tools_table[-3],
     CStdStubBuffer_DELEGATING_METHODS
 };

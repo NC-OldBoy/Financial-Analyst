@@ -49,6 +49,7 @@ public:
 
 
 	STDMETHOD(NPV)(DOUBLE r, VARIANT CashFlow, SHORT Years, DOUBLE* NPV_Result);
+	STDMETHOD(IRR)(VARIANT Cashflow, SHORT Years, DOUBLE* IRR_Return);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(DCF_Tools), CDCF_Tools)

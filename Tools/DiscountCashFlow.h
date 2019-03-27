@@ -27,5 +27,7 @@ public:
 	void SetInitialItem(void);
 	afx_msg void OnBnClickedButtonCalcu();
 	BOOL Get_Project_Sheet_receive(CString project_name,SAFEARRAY *ptr);
-	double m_edit_r1;
+
+	CString m_edit_r;
+//	virtual BOOL DestroyWindow();
 };
