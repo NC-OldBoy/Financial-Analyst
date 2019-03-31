@@ -99,6 +99,7 @@ END
 
 IDR_DCF_COM             REGISTRY                "DCF_COM.rgs"
 IDR_DCF_TOOLS           REGISTRY                "DCF_Tools.rgs"
+IDR_TIMERETURN          REGISTRY                "TimeReturn.rgs"
 
 /////////////////////////////////////////////////////////////////////////////
 //

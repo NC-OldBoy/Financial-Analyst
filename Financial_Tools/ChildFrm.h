@@ -36,4 +36,5 @@ public:
 	afx_msg void OnEffectivereturn();
 	afx_msg void OnFpa();
 	afx_msg void OnNpv();
+	afx_msg void OnTwrr();
 };

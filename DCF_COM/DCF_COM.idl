@@ -18,6 +18,18 @@ import "ocidl.idl";
 interface IDCF_Tools : IDispatch{
 	[id(1), helpstring("方法NPV")] HRESULT NPV([in] DOUBLE r, [in] VARIANT CashFlow, [in] SHORT Years, [out,retval] DOUBLE* NPV_Result);
 	[id(2), helpstring("方法IRR")] HRESULT IRR([in] VARIANT Cashflow, SHORT Years, [out,retval] DOUBLE* IRR_Return);
+
+};
+[
+	object,
+	uuid(75EDCAB4-CE1C-43E1-A923-CC613E5560AE),
+	dual,
+	nonextensible,
+	helpstring("ITimeReturn 接口"),
+	pointer_default(unique)
+]
+interface ITimeReturn : IDispatch{
+	[id(1), helpstring("方法TimeWeightRateRuturn")] HRESULT TimeWeightRateRuturn([in] VARIANT Valueflow, [in] SHORT Years, [out,retval] DOUBLE* TWRR_Return);
 };
 [
 	uuid(764EBA81-F7DF-43FB-AE21-5E05F22BCEB5),
@@ -34,5 +46,13 @@ library DCF_COMLib
 	coclass DCF_Tools
 	{
 		[default] interface IDCF_Tools;
+	};
+	[
+		uuid(5614E160-73DB-410A-89EC-E39CD456AD8F),
+		helpstring("TimeReturn Class")
+	]
+	coclass TimeReturn
+	{
+		[default] interface ITimeReturn;
 	};
 };

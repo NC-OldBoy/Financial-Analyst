@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Wed Mar 27 23:36:07 2019
+/* at Sun Mar 31 22:25:41 2019
  */
 /* Compiler settings for .\DCF_COM.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
@@ -50,7 +50,7 @@
 #include "DCF_COM_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   1039                              
-#define PROC_FORMAT_STRING_SIZE   103                               
+#define PROC_FORMAT_STRING_SIZE   151                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   1            
@@ -88,6 +88,13 @@ extern const MIDL_STUB_DESC Object_StubDesc;
 
 extern const MIDL_SERVER_INFO IDCF_Tools_ServerInfo;
 extern const MIDL_STUBLESS_PROXY_INFO IDCF_Tools_ProxyInfo;
+
+
+extern const MIDL_STUB_DESC Object_StubDesc;
+
+
+extern const MIDL_SERVER_INFO ITimeReturn_ServerInfo;
+extern const MIDL_STUBLESS_PROXY_INFO ITimeReturn_ProxyInfo;
 
 
 extern const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TABLE_SIZE ];
@@ -202,6 +209,50 @@ static const DCF_COM_MIDL_PROC_FORMAT_STRING DCF_COM__MIDL_ProcFormatString =
 /* 96 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
 /* 98 */	NdrFcShort( 0x1c ),	/* x86 Stack size/offset = 28 */
 /* 100 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure TimeWeightRateRuturn */
+
+/* 102 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 104 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 108 */	NdrFcShort( 0x7 ),	/* 7 */
+/* 110 */	NdrFcShort( 0x20 ),	/* x86 Stack size/offset = 32 */
+/* 112 */	NdrFcShort( 0x6 ),	/* 6 */
+/* 114 */	NdrFcShort( 0x2c ),	/* 44 */
+/* 116 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+			0x4,		/* 4 */
+/* 118 */	0x8,		/* 8 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 120 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 122 */	NdrFcShort( 0x167 ),	/* 359 */
+/* 124 */	NdrFcShort( 0x0 ),	/* 0 */
+
+	/* Parameter Valueflow */
+
+/* 126 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
+/* 128 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 130 */	NdrFcShort( 0x400 ),	/* Type Offset=1024 */
+
+	/* Parameter Years */
+
+/* 132 */	NdrFcShort( 0x48 ),	/* Flags:  in, base type, */
+/* 134 */	NdrFcShort( 0x14 ),	/* x86 Stack size/offset = 20 */
+/* 136 */	0x6,		/* FC_SHORT */
+			0x0,		/* 0 */
+
+	/* Parameter TWRR_Return */
+
+/* 138 */	NdrFcShort( 0x2150 ),	/* Flags:  out, base type, simple ref, srv alloc size=8 */
+/* 140 */	NdrFcShort( 0x18 ),	/* x86 Stack size/offset = 24 */
+/* 142 */	0xc,		/* FC_DOUBLE */
+			0x0,		/* 0 */
+
+	/* Return value */
+
+/* 144 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 146 */	NdrFcShort( 0x1c ),	/* x86 Stack size/offset = 28 */
+/* 148 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -1010,6 +1061,74 @@ CInterfaceStubVtbl _IDCF_ToolsStubVtbl =
     CStdStubBuffer_DELEGATING_METHODS
 };
 
+
+/* Object interface: ITimeReturn, ver. 0.0,
+   GUID={0x75EDCAB4,0xCE1C,0x43E1,{0xA9,0x23,0xCC,0x61,0x3E,0x55,0x60,0xAE}} */
+
+#pragma code_seg(".orpc")
+static const unsigned short ITimeReturn_FormatStringOffsetTable[] =
+    {
+    (unsigned short) -1,
+    (unsigned short) -1,
+    (unsigned short) -1,
+    (unsigned short) -1,
+    102
+    };
+
+static const MIDL_STUBLESS_PROXY_INFO ITimeReturn_ProxyInfo =
+    {
+    &Object_StubDesc,
+    DCF_COM__MIDL_ProcFormatString.Format,
+    &ITimeReturn_FormatStringOffsetTable[-3],
+    0,
+    0,
+    0
+    };
+
+
+static const MIDL_SERVER_INFO ITimeReturn_ServerInfo = 
+    {
+    &Object_StubDesc,
+    0,
+    DCF_COM__MIDL_ProcFormatString.Format,
+    &ITimeReturn_FormatStringOffsetTable[-3],
+    0,
+    0,
+    0,
+    0};
+CINTERFACE_PROXY_VTABLE(8) _ITimeReturnProxyVtbl = 
+{
+    &ITimeReturn_ProxyInfo,
+    &IID_ITimeReturn,
+    IUnknown_QueryInterface_Proxy,
+    IUnknown_AddRef_Proxy,
+    IUnknown_Release_Proxy ,
+    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
+    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch_Invoke_Proxy */ ,
+    (void *) (INT_PTR) -1 /* ITimeReturn::TimeWeightRateRuturn */
+};
+
+
+static const PRPC_STUB_FUNCTION ITimeReturn_table[] =
+{
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    STUB_FORWARDING_FUNCTION,
+    NdrStubCall2
+};
+
+CInterfaceStubVtbl _ITimeReturnStubVtbl =
+{
+    &IID_ITimeReturn,
+    &ITimeReturn_ServerInfo,
+    8,
+    &ITimeReturn_table[-3],
+    CStdStubBuffer_DELEGATING_METHODS
+};
+
 static const MIDL_STUB_DESC Object_StubDesc = 
     {
     0,
@@ -1037,23 +1156,27 @@ static const MIDL_STUB_DESC Object_StubDesc =
 const CInterfaceProxyVtbl * _DCF_COM_ProxyVtblList[] = 
 {
     ( CInterfaceProxyVtbl *) &_IDCF_ToolsProxyVtbl,
+    ( CInterfaceProxyVtbl *) &_ITimeReturnProxyVtbl,
     0
 };
 
 const CInterfaceStubVtbl * _DCF_COM_StubVtblList[] = 
 {
     ( CInterfaceStubVtbl *) &_IDCF_ToolsStubVtbl,
+    ( CInterfaceStubVtbl *) &_ITimeReturnStubVtbl,
     0
 };
 
 PCInterfaceName const _DCF_COM_InterfaceNamesList[] = 
 {
     "IDCF_Tools",
+    "ITimeReturn",
     0
 };
 
 const IID *  _DCF_COM_BaseIIDList[] = 
 {
+    &IID_IDispatch,
     &IID_IDispatch,
     0
 };
@@ -1063,14 +1186,11 @@ const IID *  _DCF_COM_BaseIIDList[] =
 
 int __stdcall _DCF_COM_IID_Lookup( const IID * pIID, int * pIndex )
 {
-    
-    if(!_DCF_COM_CHECK_IID(0))
-        {
-        *pIndex = 0;
-        return 1;
-        }
+    IID_BS_LOOKUP_SETUP
 
-    return 0;
+    IID_BS_LOOKUP_INITIAL_TEST( _DCF_COM, 2, 1 )
+    IID_BS_LOOKUP_RETURN_RESULT( _DCF_COM, 2, *pIndex )
+    
 }
 
 const ExtendedProxyFileInfo DCF_COM_ProxyFileInfo = 
@@ -1080,7 +1200,7 @@ const ExtendedProxyFileInfo DCF_COM_ProxyFileInfo =
     (const PCInterfaceName * ) & _DCF_COM_InterfaceNamesList,
     (const IID ** ) & _DCF_COM_BaseIIDList,
     & _DCF_COM_IID_Lookup, 
-    1,
+    2,
     2,
     0, /* table of [async_uuid] interfaces */
     0, /* Filler1 */

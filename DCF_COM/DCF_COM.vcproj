@@ -77,6 +77,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="true"
+				PerUserRedirection="true"
 				IgnoreImportLibrary="true"
 				AdditionalDependencies=" comsvcs.lib"
 				LinkIncremental="2"
@@ -265,6 +266,10 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\TimeReturn.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="头文件"
@@ -291,6 +296,10 @@
 				RelativePath=".\targetver.h"
 				>
 			</File>
+			<File
+				RelativePath=".\TimeReturn.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="资源文件"
@@ -307,6 +316,10 @@
 			</File>
 			<File
 				RelativePath=".\DCF_Tools.rgs"
+				>
+			</File>
+			<File
+				RelativePath=".\TimeReturn.rgs"
 				>
 			</File>
 		</Filter>

@@ -222,6 +222,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\TimeWeightRateReturn.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Tools.cpp"
 				>
 			</File>
@@ -261,6 +265,10 @@
 			</File>
 			<File
 				RelativePath=".\targetver.h"
+				>
+			</File>
+			<File
+				RelativePath=".\TimeWeightRateReturn.h"
 				>
 			</File>
 			<File

@@ -18,6 +18,7 @@ BEGIN_MESSAGE_MAP(CChildFrame, CMDIChildWnd)
 	ON_COMMAND(ID_Effective_return, &CChildFrame::OnEffectivereturn)
 	ON_COMMAND(ID_FPA, &CChildFrame::OnFpa)
 	ON_COMMAND(ID_NPV, &CChildFrame::OnNpv)
+	ON_COMMAND(ID_TWRR, &CChildFrame::OnTwrr)
 END_MESSAGE_MAP()
 
 
@@ -65,9 +66,12 @@ void CChildFrame::Dump(CDumpContext& dc) const
 extern void _declspec(dllimport) ShowDlg_FPDll(void);
 extern void _declspec(dllimport) ShowDlg_Effective_Return(void);
 extern void _declspec(dllimport) ShowDlg_FPA(void);
-extern void _declspec(dllimport) ShowDlg_DiscountedCashFlow(ObjectCashFlow_Sheet Data);
-extern void _declspec(dllimport) Create_DiscountedCashFlow();
-extern void _declspec(dllimport) Refresh_DiscountedCashFlow(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) ShowDlg_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) Create_DiscountedCashFlow_DCF();
+extern void _declspec(dllimport) Refresh_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) ShowDlg_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) Create_DiscountedCashFlow_TWRR();
+extern void _declspec(dllimport) Refresh_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data);
 void CChildFrame::OnFutureandpresent()
 {
 	// TODO: 在此添加命令处理程序代码
@@ -92,7 +96,16 @@ void CChildFrame::OnNpv()
 	// TODO: 在此添加命令处理程序代码
 	CFinancial_ToolsDoc * pCurrentDoc = (CFinancial_ToolsDoc *)this->GetActiveDocument();
 	ObjectCashFlow_Sheet* tmp=pCurrentDoc->GetDocData();
-	Create_DiscountedCashFlow();
-	ShowDlg_DiscountedCashFlow(*tmp);
+	Create_DiscountedCashFlow_DCF();
+	ShowDlg_DiscountedCashFlow_DCF(*tmp);
 }
 
+
+void CChildFrame::OnTwrr()
+{
+	// TODO: 在此添加命令处理程序代码
+	CFinancial_ToolsDoc * pCurrentDoc = (CFinancial_ToolsDoc *)this->GetActiveDocument();
+	ObjectCashFlow_Sheet* tmp=pCurrentDoc->GetDocData();
+	Create_DiscountedCashFlow_TWRR();
+	ShowDlg_DiscountedCashFlow_TWRR(*tmp);
+}

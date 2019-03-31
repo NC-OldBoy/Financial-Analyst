@@ -21,9 +21,12 @@ END_MESSAGE_MAP()
 
 
 // CFinancial_ToolsDoc ¹¹Ôì/Îö¹¹
-extern void _declspec(dllimport) ShowDlg_DiscountedCashFlow(ObjectCashFlow_Sheet Data);
-extern void _declspec(dllimport) Create_DiscountedCashFlow();
-extern void _declspec(dllimport) Refresh_DiscountedCashFlow(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) ShowDlg_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) Create_DiscountedCashFlow_DCF();
+extern void _declspec(dllimport) Refresh_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) ShowDlg_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data);
+extern void _declspec(dllimport) Create_DiscountedCashFlow_TWRR();
+extern void _declspec(dllimport) Refresh_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data);
 extern BOOL _declspec(dllimport) Is_Dialog_Empty();
 extern void _declspec(dllimport) Clear_Data(ObjectCashFlow_Sheet& Data);
 CFinancial_ToolsDoc::CFinancial_ToolsDoc()
@@ -91,7 +94,7 @@ void CFinancial_ToolsDoc::OnFileOpen()
 		Clear_Data(Project_Sheet);
 	GetExcelData(Project_Sheet,FilePath);
 	if(Is_Dialog_Empty()==FALSE)
-		Refresh_DiscountedCashFlow(Project_Sheet);
+		Refresh_DiscountedCashFlow_DCF(Project_Sheet);
 }
 
 BOOL CFinancial_ToolsDoc::OpenTheFile(CString& FilePath)
@@ -139,18 +142,21 @@ BOOL CFinancial_ToolsDoc::GetExcelData(ObjectCashFlow_Sheet& Project_Sheet,const
 	int Max_Rows,Max_Colums;
 	Max_Rows=GetRowCount(sheet);
 	Max_Colums=GetColumnsCount(sheet);
-	for(int i=2;i<=Max_Rows;++i)
+	for(int i=2;i<=Max_Rows;i+=2)
 	{
 		ObjectCashFlow project_tmp;
 		for(int j=2;j<=Max_Colums;++j)
 		{
 			if(j==2)
 				project_tmp.Project_Name=GetCellValueString(sheet,range,i,1);
-			project_tmp.Project.insert(make_pair(GetCellValueString(sheet,range,1,j),GetCellValueDouble(sheet,range,i,j)));
+			project_tmp.Project_OutFlow.insert(make_pair(GetCellValueString(sheet,range,1,j),GetCellValueDouble(sheet,range,i,j)));
+			project_tmp.Project_InFlow.insert(make_pair(GetCellValueString(sheet,range,1,j),GetCellValueDouble(sheet,range,i+1,j)));
+			project_tmp.Project.insert(make_pair(GetCellValueString(sheet,range,1,j),GetCellValueDouble(sheet,range,i+1,j)+GetCellValueDouble(sheet,range,i,j)));
+
 		}
 		Project_Sheet.Project_Sheet.insert(make_pair(project_tmp.Project_Name,project_tmp));
 	}
-	Project_Sheet.Project_Num=Max_Rows-1;
+	Project_Sheet.Project_Num=(Max_Rows-1)/2;
 	Project_Sheet.Years=Max_Colums-1;
 	books.Close();
 	app1.Quit();

@@ -1,0 +1,102 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 15.00.21022.08 (6779fc5e).
+//
+// c:\users\tgw\documents\visual studio 2008\projects\financial-analyst-master\tools\debug\dcf_com.tlh
+//
+// C++ source equivalent of Win32 type library C:\Users\tgw\Documents\Visual Studio 2008\Projects\Financial-Analyst-master\DCF_COM\Debug\DCF_COM.dll
+// compiler-generated file created 03/31/19 at 22:37:39 - DO NOT EDIT!
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("764eba81-f7df-43fb-ae21-5e05f22bceb5"))
+/* LIBID */ __DCF_COMLib;
+struct /* coclass */ DCF_Tools;
+struct __declspec(uuid("b040a339-bbec-491f-b151-2228dd10d3cc"))
+/* dual interface */ IDCF_Tools;
+struct /* coclass */ TimeReturn;
+struct __declspec(uuid("75edcab4-ce1c-43e1-a923-cc613e5560ae"))
+/* dual interface */ ITimeReturn;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(IDCF_Tools, __uuidof(IDCF_Tools));
+_COM_SMARTPTR_TYPEDEF(ITimeReturn, __uuidof(ITimeReturn));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("03770159-705d-4efb-b817-05ffa45f7f5a"))
+DCF_Tools;
+    // [ default ] interface IDCF_Tools
+
+struct __declspec(uuid("b040a339-bbec-491f-b151-2228dd10d3cc"))
+IDCF_Tools : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double NPV (
+        double r,
+        const _variant_t & CashFlow,
+        short Years );
+    double IRR (
+        const _variant_t & CashFlow,
+        short Years );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_NPV (
+        /*[in]*/ double r,
+        /*[in]*/ VARIANT CashFlow,
+        /*[in]*/ short Years,
+        /*[out,retval]*/ double * NPV_Result ) = 0;
+      virtual HRESULT __stdcall raw_IRR (
+        /*[in]*/ VARIANT CashFlow,
+        short Years,
+        /*[out,retval]*/ double * IRR_Return ) = 0;
+};
+
+struct __declspec(uuid("5614e160-73db-410a-89ec-e39cd456ad8f"))
+TimeReturn;
+    // [ default ] interface ITimeReturn
+
+struct __declspec(uuid("75edcab4-ce1c-43e1-a923-cc613e5560ae"))
+ITimeReturn : IDispatch
+{
+    //
+    // Wrapper methods for error-handling
+    //
+
+    double TimeWeightRateRuturn (
+        const _variant_t & Valueflow,
+        short Years );
+
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall raw_TimeWeightRateRuturn (
+        /*[in]*/ VARIANT Valueflow,
+        /*[in]*/ short Years,
+        /*[out,retval]*/ double * TWRR_Return ) = 0;
+};
+
+//
+// Wrapper method implementations
+//
+
+#include "c:\users\tgw\documents\visual studio 2008\projects\financial-analyst-master\tools\debug\dcf_com.tli"
+
+#pragma pack(pop)

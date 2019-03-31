@@ -19,18 +19,18 @@ class ATL_NO_VTABLE CDCF_Tools :
 	public CComCoClass<CDCF_Tools, &CLSID_DCF_Tools>,
 	public IDispatchImpl<IDCF_Tools, &IID_IDCF_Tools, &LIBID_DCF_COMLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
+
 public:
 	CDCF_Tools()
 	{
 	}
 
-DECLARE_REGISTRY_RESOURCEID(IDR_DCF_TOOLS)
+	DECLARE_REGISTRY_RESOURCEID(IDR_DCF_TOOLS)
 
 
-BEGIN_COM_MAP(CDCF_Tools)
-	COM_INTERFACE_ENTRY(IDCF_Tools)
-	COM_INTERFACE_ENTRY(IDispatch)
-END_COM_MAP()
+	BEGIN_COM_MAP(CDCF_Tools)
+		COM_INTERFACE_ENTRY(IDCF_Tools)
+	END_COM_MAP()
 
 
 
@@ -51,5 +51,6 @@ public:
 	STDMETHOD(NPV)(DOUBLE r, VARIANT CashFlow, SHORT Years, DOUBLE* NPV_Result);
 	STDMETHOD(IRR)(VARIANT Cashflow, SHORT Years, DOUBLE* IRR_Return);
 };
+	
 
 OBJECT_ENTRY_AUTO(__uuidof(DCF_Tools), CDCF_Tools)

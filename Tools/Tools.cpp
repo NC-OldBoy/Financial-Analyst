@@ -7,6 +7,7 @@
 #include "Effective_Ruturn.h"
 #include "FPA.h"
 #include "DiscountCashFlow.h"
+#include "TimeWeightRateReturn.h"
 #include <cmath>
 #include <windows.h>
 #ifdef _DEBUG
@@ -246,17 +247,17 @@ void ShowDlg_FPA(void)
 	FPA_Dialog.DoModal();
 }
 
-void ShowDlg_DiscountedCashFlow(ObjectCashFlow_Sheet Data)
+void ShowDlg_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data)
 {
     AFX_MANAGE_STATE(AfxGetStaticModuleState());
 	if(Data.Project_Num!=0&&Data.Years!=0)
 	{
 		DCF_Dialog.GetDataFromChild(&Data);
-	    DCF_Dialog.SetInitialItem();
+	    DCF_Dialog.SetInitialItem_NPV_IRR();
 	}
 }
 
-void Create_DiscountedCashFlow()
+void Create_DiscountedCashFlow_DCF()
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 	if(&DCF_Dialog.m_hWnd!=NULL)
@@ -265,7 +266,7 @@ void Create_DiscountedCashFlow()
 	DCF_Dialog.ShowWindow(SW_SHOW);
 }
 
-void Refresh_DiscountedCashFlow(ObjectCashFlow_Sheet Data)
+void Refresh_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data)
 {
 	AFX_MANAGE_STATE(AfxGetStaticModuleState());
 	if(!DCF_Dialog.Project_Sheet_receive.isempty())
@@ -277,7 +278,7 @@ void Refresh_DiscountedCashFlow(ObjectCashFlow_Sheet Data)
 		ptr->DeleteAllItems();
 	}
 	DCF_Dialog.GetDataFromChild(&Data);
-	DCF_Dialog.SetInitialItem();
+	DCF_Dialog.SetInitialItem_NPV_IRR();
 }
 
 BOOL Is_Dialog_Empty()
@@ -294,13 +295,55 @@ void Clear_Data(ObjectCashFlow_Sheet& Data)
 	map<CString,ObjectCashFlow>::iterator iter=Data.Project_Sheet.begin();
 	for(;iter!=Data.Project_Sheet.end();)
 	{
-		map<CString,long double>::iterator iter2=iter->second.Project.begin();
-		for (;iter2!=iter->second.Project.end();)
+		map<CString,long double>::iterator iter2=iter->second.Project_OutFlow.begin();
+		for (;iter2!=iter->second.Project_OutFlow.end();)
 		{
-			iter->second.Project.erase(iter2++);
+			iter->second.Project_OutFlow.erase(iter2++);
+		}
+		map<CString,long double>::iterator iter3=iter->second.Project_InFlow.begin();
+		for (;iter3!=iter->second.Project_InFlow.end();)
+		{
+			iter->second.Project_InFlow.erase(iter3++);
+		}
+		map<CString,long double>::iterator iter4=iter->second.Project.begin();
+		for (;iter4!=iter->second.Project.end();)
+		{
+			iter->second.Project.erase(iter4++);
 		}
 		Data.Project_Sheet.erase(iter++);
 	}
+}
+
+void ShowDlg_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+	if(Data.Project_Num!=0&&Data.Years!=0)
+	{
+		TWRR_Dialog.GetDataFromChild(&Data);
+		TWRR_Dialog.SetInitialItem_TWRR();
+	}
+}
+void Create_DiscountedCashFlow_TWRR()
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+	if(&TWRR_Dialog.m_hWnd!=NULL)
+		TWRR_Dialog.DestroyWindow();
+	TWRR_Dialog.Create(IDD_DIALOG_TWRR,0);
+	TWRR_Dialog.ShowWindow(SW_SHOW);
+}
+void Refresh_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data)
+{
+	AFX_MANAGE_STATE(AfxGetStaticModuleState());
+	if(!TWRR_Dialog.Project_Sheet_receive.isempty())
+	{
+		CListCtrl *ptr=(CListCtrl*)TWRR_Dialog.GetDlgItem(IDC_LIST_TWRR);
+		int count=ptr->GetHeaderCtrl()->GetItemCount();
+		for(int i=0;i<count;++i)
+			ptr->DeleteColumn(0);
+		ptr->DeleteAllItems();
+	}
+	TWRR_Dialog.GetDataFromChild(&Data);
+	TWRR_Dialog.SetInitialItem_TWRR();
 }
 
 int CToolsApp::ExitInstance()

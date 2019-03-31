@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Wed Mar 27 23:36:07 2019
+/* at Sun Mar 31 22:25:41 2019
  */
 /* Compiler settings for .\DCF_COM.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
@@ -51,6 +51,12 @@ typedef interface IDCF_Tools IDCF_Tools;
 #endif 	/* __IDCF_Tools_FWD_DEFINED__ */
 
 
+#ifndef __ITimeReturn_FWD_DEFINED__
+#define __ITimeReturn_FWD_DEFINED__
+typedef interface ITimeReturn ITimeReturn;
+#endif 	/* __ITimeReturn_FWD_DEFINED__ */
+
+
 #ifndef __DCF_Tools_FWD_DEFINED__
 #define __DCF_Tools_FWD_DEFINED__
 
@@ -61,6 +67,18 @@ typedef struct DCF_Tools DCF_Tools;
 #endif /* __cplusplus */
 
 #endif 	/* __DCF_Tools_FWD_DEFINED__ */
+
+
+#ifndef __TimeReturn_FWD_DEFINED__
+#define __TimeReturn_FWD_DEFINED__
+
+#ifdef __cplusplus
+typedef class TimeReturn TimeReturn;
+#else
+typedef struct TimeReturn TimeReturn;
+#endif /* __cplusplus */
+
+#endif 	/* __TimeReturn_FWD_DEFINED__ */
 
 
 /* header files for imported files */
@@ -213,6 +231,131 @@ EXTERN_C const IID IID_IDCF_Tools;
 #endif 	/* __IDCF_Tools_INTERFACE_DEFINED__ */
 
 
+#ifndef __ITimeReturn_INTERFACE_DEFINED__
+#define __ITimeReturn_INTERFACE_DEFINED__
+
+/* interface ITimeReturn */
+/* [unique][helpstring][nonextensible][dual][uuid][object] */ 
+
+
+EXTERN_C const IID IID_ITimeReturn;
+
+#if defined(__cplusplus) && !defined(CINTERFACE)
+    
+    MIDL_INTERFACE("75EDCAB4-CE1C-43E1-A923-CC613E5560AE")
+    ITimeReturn : public IDispatch
+    {
+    public:
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE TimeWeightRateRuturn( 
+            /* [in] */ VARIANT Valueflow,
+            /* [in] */ SHORT Years,
+            /* [retval][out] */ DOUBLE *TWRR_Return) = 0;
+        
+    };
+    
+#else 	/* C style interface */
+
+    typedef struct ITimeReturnVtbl
+    {
+        BEGIN_INTERFACE
+        
+        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
+            ITimeReturn * This,
+            /* [in] */ REFIID riid,
+            /* [iid_is][out] */ 
+            __RPC__deref_out  void **ppvObject);
+        
+        ULONG ( STDMETHODCALLTYPE *AddRef )( 
+            ITimeReturn * This);
+        
+        ULONG ( STDMETHODCALLTYPE *Release )( 
+            ITimeReturn * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
+            ITimeReturn * This,
+            /* [out] */ UINT *pctinfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
+            ITimeReturn * This,
+            /* [in] */ UINT iTInfo,
+            /* [in] */ LCID lcid,
+            /* [out] */ ITypeInfo **ppTInfo);
+        
+        HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
+            ITimeReturn * This,
+            /* [in] */ REFIID riid,
+            /* [size_is][in] */ LPOLESTR *rgszNames,
+            /* [range][in] */ UINT cNames,
+            /* [in] */ LCID lcid,
+            /* [size_is][out] */ DISPID *rgDispId);
+        
+        /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
+            ITimeReturn * This,
+            /* [in] */ DISPID dispIdMember,
+            /* [in] */ REFIID riid,
+            /* [in] */ LCID lcid,
+            /* [in] */ WORD wFlags,
+            /* [out][in] */ DISPPARAMS *pDispParams,
+            /* [out] */ VARIANT *pVarResult,
+            /* [out] */ EXCEPINFO *pExcepInfo,
+            /* [out] */ UINT *puArgErr);
+        
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *TimeWeightRateRuturn )( 
+            ITimeReturn * This,
+            /* [in] */ VARIANT Valueflow,
+            /* [in] */ SHORT Years,
+            /* [retval][out] */ DOUBLE *TWRR_Return);
+        
+        END_INTERFACE
+    } ITimeReturnVtbl;
+
+    interface ITimeReturn
+    {
+        CONST_VTBL struct ITimeReturnVtbl *lpVtbl;
+    };
+
+    
+
+#ifdef COBJMACROS
+
+
+#define ITimeReturn_QueryInterface(This,riid,ppvObject)	\
+    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
+
+#define ITimeReturn_AddRef(This)	\
+    ( (This)->lpVtbl -> AddRef(This) ) 
+
+#define ITimeReturn_Release(This)	\
+    ( (This)->lpVtbl -> Release(This) ) 
+
+
+#define ITimeReturn_GetTypeInfoCount(This,pctinfo)	\
+    ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
+
+#define ITimeReturn_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+    ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
+
+#define ITimeReturn_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+    ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
+
+#define ITimeReturn_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+    ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
+
+
+#define ITimeReturn_TimeWeightRateRuturn(This,Valueflow,Years,TWRR_Return)	\
+    ( (This)->lpVtbl -> TimeWeightRateRuturn(This,Valueflow,Years,TWRR_Return) ) 
+
+#endif /* COBJMACROS */
+
+
+#endif 	/* C style interface */
+
+
+
+
+#endif 	/* __ITimeReturn_INTERFACE_DEFINED__ */
+
+
 
 #ifndef __DCF_COMLib_LIBRARY_DEFINED__
 #define __DCF_COMLib_LIBRARY_DEFINED__
@@ -229,6 +372,14 @@ EXTERN_C const CLSID CLSID_DCF_Tools;
 
 class DECLSPEC_UUID("03770159-705D-4EFB-B817-05FFA45F7F5A")
 DCF_Tools;
+#endif
+
+EXTERN_C const CLSID CLSID_TimeReturn;
+
+#ifdef __cplusplus
+
+class DECLSPEC_UUID("5614E160-73DB-410A-89EC-E39CD456AD8F")
+TimeReturn;
 #endif
 #endif /* __DCF_COMLib_LIBRARY_DEFINED__ */
 

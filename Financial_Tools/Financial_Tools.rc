@@ -172,7 +172,8 @@ BEGIN
         END
         POPUP "现金流折现应用计算"
         BEGIN
-            MENUITEM "净值计算公式",                      ID_NPV
+            MENUITEM "净值/内部收益率计算公式",                ID_NPV
+            MENUITEM "时间加权收益率计算公式",                 ID_TWRR
         END
     END
     POPUP "窗口(&W)"

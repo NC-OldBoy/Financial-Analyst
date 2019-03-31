@@ -24,10 +24,11 @@ protected:
 public:
 	ObjectCashFlow_Sheet Project_Sheet_receive;
 	virtual BOOL OnInitDialog();
-	void SetInitialItem(void);
+	void SetInitialItem_NPV_IRR(void);
 	afx_msg void OnBnClickedButtonCalcu();
 	BOOL Get_Project_Sheet_receive(CString project_name,SAFEARRAY *ptr);
 
 	CString m_edit_r;
 //	virtual BOOL DestroyWindow();
+	afx_msg void OnBnClickedButton2();
 };

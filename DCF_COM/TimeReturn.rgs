@@ -1,0 +1,26 @@
+HKCR
+{
+	DCF_COM.TimeReturn.1 = s 'TimeReturn Class'
+	{
+		CLSID = s '{5614E160-73DB-410A-89EC-E39CD456AD8F}'
+	}
+	DCF_COM.TimeReturn = s 'TimeReturn Class'
+	{
+		CLSID = s '{5614E160-73DB-410A-89EC-E39CD456AD8F}'
+		CurVer = s 'DCF_COM.TimeReturn.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5614E160-73DB-410A-89EC-E39CD456AD8F} = s 'TimeReturn Class'
+		{
+			ProgID = s 'DCF_COM.TimeReturn.1'
+			VersionIndependentProgID = s 'DCF_COM.TimeReturn'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{764EBA81-F7DF-43FB-AE21-5E05F22BCEB5}'
+		}
+	}
+}

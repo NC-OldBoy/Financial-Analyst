@@ -15,8 +15,11 @@ EXPORTS
     ShowDlg_FPDll
     ShowDlg_Effective_Return
     ShowDlg_FPA
-    ShowDlg_DiscountedCashFlow
-    Create_DiscountedCashFlow
-    Refresh_DiscountedCashFlow
+    ShowDlg_DiscountedCashFlow_DCF
+    Create_DiscountedCashFlow_DCF
+    Refresh_DiscountedCashFlow_DCF
+    ShowDlg_DiscountedCashFlow_TWRR
+    Create_DiscountedCashFlow_TWRR
+    Refresh_DiscountedCashFlow_TWRR
     Is_Dialog_Empty
     Clear_Data

@@ -4,10 +4,8 @@
 #include "stdafx.h"
 #include "Tools.h"
 #include "DiscountCashFlow.h"
-#include "../DCF_COM/DCF_COM_i.h"
-#include "../DCF_COM/DCF_COM_i.c"
 #include <comdef.h>
-//#import "C:\Users\tgw\Documents\Visual Studio 2008\Projects\Financial-Analyst-master\DCF_COM\Debug\DCF_COM.dll" no_namespace 
+#import "C:\Users\tgw\Documents\Visual Studio 2008\Projects\Financial-Analyst-master\DCF_COM\Debug\DCF_COM.dll" no_namespace 
 // DiscountCashFlow 对话框
 #define MAX_SIZE 256
 IMPLEMENT_DYNAMIC(DiscountCashFlow, CDialog)
@@ -33,6 +31,7 @@ void DiscountCashFlow::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(DiscountCashFlow, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON1, &DiscountCashFlow::OnBnClickedButtonCalcu)
+	ON_BN_CLICKED(IDC_BUTTON2, &DiscountCashFlow::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -59,7 +58,7 @@ BOOL DiscountCashFlow::OnInitDialog()
 	// 异常: OCX 属性页应返回 FALSE
 }
 
-void DiscountCashFlow::SetInitialItem(void)
+void DiscountCashFlow::SetInitialItem_NPV_IRR(void)
 {
 	CListCtrl* ptrlistctrl=(CListCtrl*)this->GetDlgItem(IDC_LIST_CTRL);
 	CRect tmp_rect;
@@ -115,8 +114,11 @@ void DiscountCashFlow::OnBnClickedButtonCalcu()
 	UpdateData(TRUE);
 	int index=0;//指示是第几行
 	map<CString,ObjectCashFlow>::iterator iter=Project_Sheet_receive.Project_Sheet.begin();
-	IDCF_Tools *tools;
-	HRESULT hResult=CoCreateInstance(CLSID_DCF_Tools,NULL,CLSCTX_INPROC_SERVER,IID_IDCF_Tools,(void**)&tools);
+	CoInitialize(NULL);
+	CLSID clsid;
+	CLSIDFromProgID(OLESTR("DCF_COM.DCF_Tools"),&clsid);
+	CComPtr<IDCF_Tools> tools;
+	tools.CoCreateInstance(clsid);
 	for (;iter!=Project_Sheet_receive.Project_Sheet.end();++iter)
 	{
 		SAFEARRAYBOUND arrbound[1];//设置安全数组的维度
@@ -134,7 +136,7 @@ void DiscountCashFlow::OnBnClickedButtonCalcu()
 		vsaValue.parray = psa;//封装safearray;
 		double NPV=0;
 		double Return=_wtof(m_edit_r);
-		tools->NPV(Return,vsaValue,Project_Sheet_receive.Years,&NPV);
+		NPV=tools->NPV(Return,vsaValue,Project_Sheet_receive.Years);
 		CListCtrl* ptrlistctrl=(CListCtrl*)this->GetDlgItem(IDC_LIST_CTRL);
 		CString str;
 		str.Format(_T("%.2f"),NPV);
@@ -142,37 +144,7 @@ void DiscountCashFlow::OnBnClickedButtonCalcu()
 		SafeArrayDestroy(psa);
 		++index;
 	}
-	iter=Project_Sheet_receive.Project_Sheet.begin();
-	index=0;
-	for (;iter!=Project_Sheet_receive.Project_Sheet.end();++iter)
-	{
-		SAFEARRAYBOUND arrbound[1];//设置安全数组的维度
-		VARIANT vsaValue;//设置variant数组
-		int arrsize=Project_Sheet_receive.Years;
-		arrbound[0].lLbound=0;
-		arrbound[0].cElements=(long)arrsize;
-		SAFEARRAY *psa=SafeArrayCreate(VT_R8,1,arrbound);
-		if(psa==NULL)
-		{
-			MessageBox(_T("创建失败"));
-		}
-		Get_Project_Sheet_receive(iter->first,psa);
-		vsaValue.vt= VT_ARRAY|VT_VARIANT;
-		vsaValue.parray = psa;//封装safearray;
-		double IRR=0;
-		tools->IRR(vsaValue,Project_Sheet_receive.Years,&IRR);
-		CListCtrl* ptrlistctrl=(CListCtrl*)this->GetDlgItem(IDC_LIST_CTRL);
-		CString str;
-		if(IRR==0)
-			str=L"亏本项目";
-		else if(IRR==1)
-			str=L"盈利超100%";
-		else
-			str.Format(_T("%.2f"),IRR);
-		ptrlistctrl->SetItemText(index,Project_Sheet_receive.Years+2,str);
-		SafeArrayDestroy(psa);
-		++index;
-	}
+	tools.Release();
 	CoUninitialize();
 }
 
@@ -205,4 +177,49 @@ BOOL DiscountCashFlow::Get_Project_Sheet_receive(CString project_name,SAFEARRAY 
 	return 0;
 }
 
+
+
+void DiscountCashFlow::OnBnClickedButton2()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	UpdateData(TRUE);
+	int index=0;//指示是第几行
+	map<CString,ObjectCashFlow>::iterator iter=Project_Sheet_receive.Project_Sheet.begin();
+	CoInitialize(NULL);
+	CLSID clsid;
+	CLSIDFromProgID(OLESTR("DCF_COM.DCF_Tools"),&clsid);
+	CComPtr<IDCF_Tools> tools;
+	tools.CoCreateInstance(clsid);
+	for (;iter!=Project_Sheet_receive.Project_Sheet.end();++iter)
+	{
+		SAFEARRAYBOUND arrbound[1];//设置安全数组的维度
+		VARIANT vsaValue;//设置variant数组
+		int arrsize=Project_Sheet_receive.Years;
+		arrbound[0].lLbound=0;
+		arrbound[0].cElements=(long)arrsize;
+		SAFEARRAY *psa=SafeArrayCreate(VT_R8,1,arrbound);
+		if(psa==NULL)
+		{
+			MessageBox(_T("创建失败"));
+		}
+		Get_Project_Sheet_receive(iter->first,psa);
+		vsaValue.vt= VT_ARRAY|VT_VARIANT;
+		vsaValue.parray = psa;//封装safearray;
+		double IRR=0;
+		IRR=tools->IRR(vsaValue,Project_Sheet_receive.Years);
+		CListCtrl* ptrlistctrl=(CListCtrl*)this->GetDlgItem(IDC_LIST_CTRL);
+		CString str;
+		if(IRR==0)
+			str=L"亏本项目";
+		else if(IRR==1)
+			str=L"盈利超100%";
+		else
+			str.Format(_T("%.5f"),IRR);
+		ptrlistctrl->SetItemText(index,Project_Sheet_receive.Years+2,str);
+		SafeArrayDestroy(psa);
+		++index;
+	}
+	tools.Release();
+	CoUninitialize();
+}
 

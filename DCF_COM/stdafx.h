@@ -28,3 +28,4 @@
 #include <atlctl.h>
 
 using namespace ATL;
+

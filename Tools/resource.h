@@ -20,6 +20,8 @@
 #define IDD_DIALOG_DiscountedCashFlow   1006
 #define IDS_STRING_PERIOD_RETURN        1007
 #define IDC_EDIT6                       1007
+#define IDD_DIALOG2                     1007
+#define IDD_DIALOG_TWRR                 1007
 #define IDS_STRING_A                    1008
 #define IDC_BUTTON_FV                   1009
 #define IDC_STATIC_FV                   1010
@@ -49,14 +51,15 @@
 #define IDC_STATIC_r2                   1032
 #define IDC_LIST3                       1039
 #define IDC_LIST_CTRL                   1039
+#define IDC_LIST_TWRR                   1040
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        1007
+#define _APS_NEXT_RESOURCE_VALUE        1008
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1040
+#define _APS_NEXT_CONTROL_VALUE         1041
 #define _APS_NEXT_SYMED_VALUE           1000
 #endif
 #endif

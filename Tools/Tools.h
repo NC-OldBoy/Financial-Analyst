@@ -11,8 +11,10 @@
 #include <cstdlib>
 #include <cmath>
 #include "../ObjectCashFlow_Sheet/ObjectCashFlow_Sheet.h"
-#include "discountcashflow.h"
+#include "Discountcashflow.h"
+#include "TimeWeightRateReturn.h"
 #include <OAIdl.h>
+
 //判别想求什么
 #define WANT_GET 0
 #define WANT_GET_FV 1
@@ -33,12 +35,16 @@ BOOL PresentValueInfiniteEqualCashFlow(long double *PV,long double *A,long doubl
 void ShowDlg_FPDll(void);
 void ShowDlg_Effective_Return(void);
 void ShowDlg_FPA(void);
-void ShowDlg_DiscountedCashFlow(ObjectCashFlow_Sheet Data);
-void Create_DiscountedCashFlow();
-void Refresh_DiscountedCashFlow(ObjectCashFlow_Sheet Data);
+void ShowDlg_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data);
+void Create_DiscountedCashFlow_DCF();
+void Refresh_DiscountedCashFlow_DCF(ObjectCashFlow_Sheet Data);
+void ShowDlg_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data);
+void Create_DiscountedCashFlow_TWRR();
+void Refresh_DiscountedCashFlow_TWRR(ObjectCashFlow_Sheet Data);
 BOOL Is_Dialog_Empty();
 void Clear_Data(ObjectCashFlow_Sheet& Data);
 extern DiscountCashFlow DCF_Dialog;
+extern TimeWeightRateReturn TWRR_Dialog;
 class CToolsApp : public CWinApp
 {
 public:
